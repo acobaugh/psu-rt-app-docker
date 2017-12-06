@@ -8,11 +8,11 @@ Set($WebPath, "$ENV{'WEBPATH'}");
 Set($WebDomain, "$ENV{'WEBDOMAIN'}");
 Set($WebPort, "$ENV{'WEBPORT'}");
 
-Set($DatabaseType, "$ENV{'DB_TYPE'}");
-Set($DatabaseHost,   "$ENV{'DB_HOST'});
-Set($DatabaseUser, "$ENV{'DB_USER'}");
-Set($DatabasePassword, "$ENV{'DB_PASSWORD'}");
-Set($DatabaseName, "$ENV{'DB_NAME'}");
+Set($DatabaseType, "$ENV{'DBTYPE'}");
+Set($DatabaseHost,   "$ENV{'DBHOST'});
+Set($DatabaseUser, "$ENV{'DBUSER'}");
+Set($DatabasePassword, "$ENV{'DBPASSWORD'}");
+Set($DatabaseName, "$ENV{'DBNAME'}");
 
 # Display users as "RealName <EmailAddress>"
 Set($UsernameFormat, "verbose");
