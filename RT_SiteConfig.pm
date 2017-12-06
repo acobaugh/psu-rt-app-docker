@@ -4,15 +4,15 @@ Set($Organization, "aset.psu.edu");
 # We renamed from aset.psu.edu, so match on that or the new name
 Set($EmailSubjectTagRegex, qr/(?:aset\.psu\.edu|ait\.psu\.edu)/i);
 
-Set($WebPath, "$ENV{'WEBPATH'}");
-Set($WebDomain, "$ENV{'WEBDOMAIN'}");
-Set($WebPort, "$ENV{'WEBPORT'}");
+Set($WebPath, $ENV{WEBPATH} || "");
+Set($WebDomain, $ENV{WEBDOMAIN} || 'localhost');
+Set($WebPort, $ENV{WEBPORT} || 8080);
 
-Set($DatabaseType, "$ENV{'DBTYPE'}");
-Set($DatabaseHost,   "$ENV{'DBHOST'});
-Set($DatabaseUser, "$ENV{'DBUSER'}");
-Set($DatabasePassword, "$ENV{'DBPASSWORD'}");
-Set($DatabaseName, "$ENV{'DBNAME'}");
+Set($DatabaseType, $ENV{DBTYPE} || 'SQLite');
+Set($DatabaseHost, $ENV{DBHOST});
+Set($DatabaseUser, $ENV{DBUSER});
+Set($DatabasePassword, $ENV{DBPASSWORD});
+Set($DatabaseName, $ENV{DBNAME} || 'rt');
 
 # Display users as "RealName <EmailAddress>"
 Set($UsernameFormat, "verbose");
@@ -29,15 +29,8 @@ Set($ParseNewMessageForTicketCcs, 1);
 # correspond addresses configured for every queue
 Set($RTAddressRegexp, "(\@rt\.ait\.psu\.edu|\@aitprojects\.aset\.psu\.edu|(aithelp|aitweb|backup|clubsadmin|grouper|dcsaccounts|kerberos|ait-polaris|syseng-linuxreq|syseng-certreq|lpsys|lpintegrations|lpdevelopers|search|storage|trackits|ucshelp|ucsmigration|webrat|win-ad|eio-billing|itab)\@psu\.edu|(hostmaster|pass|sysreq|trackits|trackits-dev|trackits-dev-comment|webrat-dev|webrat-dev-comment)\@(ait|aset)\.psu\.edu|win-ad\@(ait|aset)?\.psu\.edu)");
 
-# only enable this file for debugging purposes
 Set($LogToFile, 0);
-Set($LogDir, q{var/log});
-Set($LogToFileNamed, "rt.log");    
-
-Set($LogToSyslog, 'info');
-Set(@LogToSyslogConf, ident => 'RTprod');
-
-#Set($LogToSTDERR, 'info');
+Set( $LogToSTDERR, $ENV{LOG_LEVEL} || "info" );
 
 Set($WebRemoteUserAuth , 1);
 Set($WebRemoteUserAutocreate,1);
