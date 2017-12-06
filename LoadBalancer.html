@@ -1,0 +1,29 @@
+<html>
+<head><title><% $title %></title></head>
+<body>
+<p><% $msg %></p>
+<p>This is <i><% $hostname %></i></p>
+</div>
+</body>
+
+%$r->headers_out->{'Status'} = $code;
+%$m->abort;
+
+<%args>
+$OperationalTitle => "operational"
+$OperationalMsg => "operational"
+</%args>
+
+<%INIT>
+$m->clear_buffer();
+
+use Sys::Hostname;
+my $hostname = hostname;
+
+my ($title) = 'operational';
+my ($msg) = "operational on $hostname";
+my ($code) = 200;
+</%INIT>
+
+<%ARGS>
+</%ARGS>
