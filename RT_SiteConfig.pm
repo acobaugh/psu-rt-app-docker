@@ -5,8 +5,8 @@ Set($Organization, "aset.psu.edu");
 Set($EmailSubjectTagRegex, qr/(?:aset\.psu\.edu|ait\.psu\.edu)/i);
 
 Set($WebPath, $ENV{WEBPATH} || "");
-Set($WebDomain, $ENV{WEBDOMAIN} || 'localhost');
-Set($WebPort, $ENV{WEBPORT} || 8080);
+Set($WebBaseURL, $ENV{WEBBASEURL} || 'localhost');
+Set($WebURL, $WebBaseURL . $WebPath . "/");
 
 Set($DatabaseType, $ENV{DBTYPE} || 'SQLite');
 Set($DatabaseHost, $ENV{DBHOST});
