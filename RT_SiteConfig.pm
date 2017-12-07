@@ -1,4 +1,4 @@
-Set( $rtname, 'ait.psu.edu');
+Set($rtname, 'ait.psu.edu');
 Set($Organization, "aset.psu.edu");
 
 # We renamed from aset.psu.edu, so match on that or the new name
@@ -7,6 +7,8 @@ Set($EmailSubjectTagRegex, qr/(?:aset\.psu\.edu|ait\.psu\.edu)/i);
 Set($WebPath, $ENV{WEBPATH} || "");
 Set($WebBaseURL, $ENV{WEBBASEURL} || 'localhost');
 Set($WebURL, $WebBaseURL . $WebPath . "/");
+Set($CanonicalizeRedirectURLs, 1);
+Set($CanonicalizeURLsInFeeds, 1);
 
 Set($DatabaseType, $ENV{DBTYPE} || 'SQLite');
 Set($DatabaseHost, $ENV{DBHOST});
