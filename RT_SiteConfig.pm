@@ -11,9 +11,9 @@ Set($CanonicalizeRedirectURLs, 1);
 Set($CanonicalizeURLsInFeeds, 1);
 
 Set($DatabaseType, $ENV{DBTYPE} || 'SQLite');
-Set($DatabaseHost, $ENV{DBHOST});
-Set($DatabaseUser, $ENV{DBUSER});
-Set($DatabasePassword, $ENV{DBPASSWORD});
+Set($DatabaseHost, $ENV{DBHOST} || 'localhost');
+Set($DatabaseUser, $ENV{DBUSER} || 'rt');
+Set($DatabasePassword, $ENV{DBPASSWORD} || '');
 Set($DatabaseName, $ENV{DBNAME} || 'rt');
 
 # Display users as "RealName <EmailAddress>"
